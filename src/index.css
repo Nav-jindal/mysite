@@ -1,13 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font Face  */
+@font-face {
+  font-family: Bahnschrift;
+  src: url('/public/images/BAHNSCHRIFT.woff2') format('woff2');
+}
+
+*{
+  font-family: Bahnschrift;
+  font-optical-sizing: auto;
+  color: #020307;
+}
+
+html {
+  font-size: 18px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.socialIcons:hover {
+  fill: #263568 !important;
 }
