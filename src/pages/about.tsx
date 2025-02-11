@@ -4,21 +4,24 @@ import Tags from "../components/tags"
 const About = () => {
     // Constants:
     const skilsTags = [
-        'HTML',
-        'CSS',
-        'Vanilla.js',
-        'GraphQL',
-        'React',
-        'Typescript',
-        'Tailwind',
-        'SCSS/SASS',
-        'UI/UX',
+        'html',
+        'css',
+        'vanilla.js',
+        'graphQL',
+        'react',
+        'typescript',
+        'tailwind',
+        'scss/sass',
+        'ui/ux',
     ]
-    return <div className='flex-1 my-[60px] flex justify-between'>
+
+    return <div className='flex-1 my-[60px] flex justify-between flex-wrap'>
         <div>
-            <h3 className='text-[24px] font-semibold text-[#B1B1B1]'>About</h3>
-            <h2 className='font-light text-[40px] mb-[25px]'>Hello, I'm <span className='font-bold text-[#263568]'>Nav Jindal</span></h2>
-            <div className='ml-[75px] pl-[25px] w-[550px] font-normal text-[#8A8484] border-solid border-l-2 border-[#263568]'>
+            <h3 className='text-[22.781px] text-[#AFB2BB]'>about</h3>
+            <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[18px]'>
+                Hello, My name is 
+                <span className='font-semibold'> Nav Jindal</span></h2>
+            <div className='pl-[18px] md:pl-[24px] max-w-[600px] text-[#9699A1] border-solid border-l-[2px] border-black'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean varius ante eget dolor commodo, 
                 quis efficitur dui tincidunt. Nulla non nisi metus. Curabitur in posuere augue. 
                 Vestibulum tincidunt tincidunt erat, egestas consequat felis consequat nec. Donec bibendum risus 
@@ -26,19 +29,20 @@ const About = () => {
                 augue, eget auctor leo consequat ac. Suspendisse potent
             </div>
         </div>
-        <div className='mt-[28px] w-[20%]'>
+        <div className='mt-[28px] sm:w-[60%] lg:w-[22%]'>
             <div className='mb-[40px]'>
-                <h3 className='text-[#263568] font-bold text-[24px]'>Education</h3>
-                <div className='mt-[12px] pl-[12.5px] text-[#B1B1B1] border-solid border-l-2 border-[#263568]'>
-                    <span className='font-bold text-[#B1B1B1]'>Btech (CS)</span> <br/>
+                <h3 className='font-bold text-[25.629px] mb-[12px]'>Education</h3>
+                <div className=' pl-[9px] md:pl-[12.5px] text-[#9699A1] border-solid border-l-[2px] border-black'>
+                    <span className='font-bold text-[#9699A1]'>Btech (CS)</span> <br/>
                     Graphic Era University
                 </div>
             </div>
             <div className='mb-[40px]'>
-                <h3 className='text-[#263568] font-bold text-[24px]'>Skills</h3>
-                <div className='mt-[12px] flex gap-[12px] flex-wrap'>
-                    {skilsTags.map((skillTag:string)=>
+                <h3 className='font-bold text-[25.629px] mb-[12px]'>Skills</h3>
+                <div className='flex gap-[12px] flex-wrap'>
+                    {skilsTags.map((skillTag:string, index:number)=>
                         <Tags
+                            key={index}
                             title={skillTag}
                         />
                     )}

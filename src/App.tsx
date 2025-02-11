@@ -3,6 +3,7 @@
 import Hero from './pages/hero'
 import About from './pages/about'
 import Contact from './pages/contact'
+import Examples from './pages/examples'
 
 // Components:
 import Navbar from './components/navbar'
@@ -39,6 +40,10 @@ function App() {
       element: <About />
     },
     {
+      path: '/portfolio',
+      element: <Examples />
+    },
+    {
       path: '/contact',
       element: <Contact />
     },
@@ -53,7 +58,7 @@ function App() {
   ])
 
   return (
-    <div className='py-[25px] px-[75px] bg-[#F0F2F6] min-h-screen w-full flex flex-col justify-between'>
+    <div className='mx-[auto] px-[20px] py-[25px] xl:max-w-[1250px] 2xl:max-w-[1350px] min-h-screen w-full flex flex-col justify-between'>
       <RouterProvider router={router}/>
     </div>
   );

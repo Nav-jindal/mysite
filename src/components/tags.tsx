@@ -6,7 +6,7 @@ interface TagsType{
 const Tags = ({
     title
 }: TagsType) => {
-    return <div className='w-max px-[14px] py-[6px] bg-[#D5DAE8] text-[#263568]'>
+    return <div className='w-max rounded-[6px] px-[14px] py-[6px] bg-[#D8DCE6] text-[#6C6E73]'>
         {title}
     </div>
 }

@@ -1,6 +1,7 @@
 // Packages:
 import { useForm } from "react-hook-form"
 import { isEmpty } from "lodash"
+import { useEffect } from "react"
 
 // Typescript:
 interface ContactFormType {
@@ -25,13 +26,17 @@ const Contact = () => {
         console.log('data: ',data)
     }
 
-    return <div className='flex-1 my-[60px] w-[50%]'>
-        <div className='mb-[40px]'>
-            <h3 className='text-[24px] font-semibold text-[#B1B1B1]'>Contact</h3>
-            <h2 className='font-light text-[40px] mb-[25px]'>Get in touch - <span className='text-[#263568]'>I’d love to connect!</span></h2>
+    useEffect(()=>{
+        console.log('errors: ',errors)
+    },[errors])
+
+    return <div className='flex-1 my-[60px] md:w-[75%] lg:w-[60%]'>
+        <div className='mb-[40px] lg:mb-[0px]'>
+            <h3 className='text-[22.781px] text-[#9699A1]'>contact</h3>
+            <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[25px]'>Get in touch, <span className='font-semibold'>I’d love to connect!</span></h2>
         </div>
         <form onSubmit={handleSubmit(contactSubmit)} noValidate>
-            <div className='flex gap-[20px] items-center'>
+            <div className='flex gap-[40px] mb-[40px] sm:mb-[0px] sm:gap-[20px] flex-col md:items-center sm:flex-row'>
                 <div className='relative flex-1'>
                     <h3 className={`${errors?.name ? '!text-[#682627]' : '' } 
                                     ${!isEmpty(allFields?.name) && !errors?.name ? '!text-[16px] !font-normal' : '' }
@@ -102,8 +107,8 @@ const Contact = () => {
             </div>
             <button 
                 type='submit'
-                className='mt-[20px] py-[12px] px-[30px] bg-[#263568] text-[#F0F2F6] hover:px-[45px]'>
-                    Send
+                className={`${isEmpty(errors) ? '' : 'pointer-events-none bg-[#8189a5]' } mt-[50px] 'px-[20px] py-[10px] md:py-[12px] md:px-[30px] bg-[#263568] text-[#F0F2F6] hover:px-[45px]`}>
+                    Message me
             </button>
         </form>
     </div>
