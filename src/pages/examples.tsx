@@ -22,7 +22,7 @@ const ExamplesCard = ({
                         onClick={()=>sentImgToIsFullScreenOpen(imgSrc, title)}
                     >
     
-    <h3 className='font-light text-[25.629px] mb-[12px]'>{(id ?? 1) + 1}. <span className='font-semibold'> {title}</span></h3>
+    <h3 className='font-light text-[25.629px] mb-[12px]'> <span className='font-semibold'> {title}</span></h3>
     <div className='relative w-full h-full'>
         <img 
             className='absolute object-cover w-full h-full grayscale rounded-[8px] group-hover:grayscale-0 group-hover:object-contain'
@@ -49,6 +49,11 @@ const Examples = () => {
             id: 1,
             title: 'Mr.Artzy',
             imgSrc: './images/portfolio2.png'
+        },
+        {
+            id: 2,
+            title: 'Alex Carter',
+            imgSrc: './images/portfolio3.png'
         },
     ]
 

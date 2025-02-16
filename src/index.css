@@ -26,6 +26,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.Toastify__toast {
+  margin-bottom: 20px !important;
+}
+
 .socialIcons:hover {
   fill: #263568 !important;
 }

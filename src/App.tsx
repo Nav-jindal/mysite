@@ -1,3 +1,5 @@
+// Packages:
+import { ToastContainer } from 'react-toastify'
 
 // Pages:
 import Hero from './pages/hero'
@@ -11,6 +13,9 @@ import Footer from './components/footer'
 
 // Routes:
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+
+// CSS:
+import 'react-toastify/dist/ReactToastify.css'
 
 // Typescript:
 export interface RouterPathsType {
@@ -40,7 +45,7 @@ function App() {
       element: <About />
     },
     {
-      path: '/portfolio',
+      path: '/examples',
       element: <Examples />
     },
     {
@@ -57,11 +62,12 @@ function App() {
     }
   ])
 
-  return (
+  return <>
+    <ToastContainer  limit={2}/>
     <div className='mx-[auto] px-[20px] py-[25px] xl:max-w-[1250px] 2xl:max-w-[1350px] min-h-screen w-full flex flex-col justify-between'>
       <RouterProvider router={router}/>
     </div>
-  );
+    </>
 }
 
 export default App;
