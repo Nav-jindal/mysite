@@ -10,19 +10,23 @@ interface ExamplesType {
     title: string
     type: string
     imgSrc: string
-    sentImgToIsFullScreenOpen: (arg0: string, arg1: string, arg2: string) => void
+    url?: string | undefined
+    sentImgToIsFullScreenOpen: (arg0: string, arg1: string, arg2: string, arg3: string | undefined) => void
 }
 
 const ExamplesCard = ({
     title,
     type,
     imgSrc,
+    url,
     sentImgToIsFullScreenOpen,
 } : ExamplesType) => <div 
                         className='group cursor-pointer w-full sm:w-[48%] lg:w-[25%] h-[300px] rounded-[8px]'
-                        onClick={()=>sentImgToIsFullScreenOpen(imgSrc, title, type)}
+                        onClick={()=>
+                            url === '' ? sentImgToIsFullScreenOpen(imgSrc, title, type, url) :  
+                            window.open("https://alexcarter.netlify.app", "_blank")
+                        }
                     >
-    <h3 className='font-light text-[25.629px] mb-[12px]'> <span className='font-semibold'> {title}</span></h3>
     <div className='relative w-full h-full'>
         <img 
             className='absolute object-cover w-full h-full grayscale rounded-[8px] group-hover:grayscale-0 group-hover:object-contain'
@@ -33,7 +37,8 @@ const ExamplesCard = ({
             
         </div>
     </div>
-    
+    <h3 className='font-light text-[25.629px] mt-[12px]'> <span className='font-semibold'> {title}</span></h3>
+    <h4 className='font-light text-[#263669] text-[16pxpx]'>{type}</h4>
 
 </div>
 
@@ -46,6 +51,13 @@ const Examples = () => {
             imgSrc: './images/portfolio1.png',
             type: 'design (figma)',
         },
+        {
+            id: 1,
+            title: 'Alex Carter',
+            imgSrc: './images/portfolio2.png',
+            url: 'http://alexcarter.netlify.app',
+            type: 'design + code',
+        },
     ]
 
     // States:
@@ -54,20 +66,23 @@ const Examples = () => {
         imgSrc: string
         title: string
         type: string
+        url?: string | undefined
     }>({
         imgSrc: '',
         title: '',
-        type: ''
+        type: '',
+        url: ''
     })
 
     // Functions:
     const toggleIsFullScreenOpen = () => setIsFullScreenOpen(!isFullScreenOpen)
 
-    const sentImgToIsFullScreenOpen = (imgSrc: string, title: string, type: string) => {
+    const sentImgToIsFullScreenOpen = (imgSrc: string, title: string, type: string, url: string | undefined) => {
         setopenedImageObject({
             imgSrc: imgSrc ?? '',
             title: title ?? '',
-            type: type ?? ''
+            type: type ?? '',
+            url: url ?? '',
         })
         toggleIsFullScreenOpen()
     }
@@ -89,6 +104,7 @@ const Examples = () => {
                     title={example?.title}
                     type={example?.type}
                     imgSrc={example?.imgSrc}
+                    url={example?.url ?? ''}
                     sentImgToIsFullScreenOpen={sentImgToIsFullScreenOpen}
                 />
             )}

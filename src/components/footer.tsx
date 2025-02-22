@@ -5,7 +5,7 @@ import { IconContext } from 'react-icons'
 import { FaLinkedinIn, FaEnvelope } from "react-icons/fa6"
 
 const Footer = () => {
-    return <div className='flex gap-[24px] items-center'>
+    return <div className='mt-[30px] flex gap-[24px] items-center'>
         <IconContext.Provider 
             value={{ 
                 className: 'socialIcons', 

@@ -5,7 +5,8 @@ import { FaXmark } from "react-icons/fa6";
 interface ViewInFullScreenType {
     title: string,
     imgSrc: string,
-    type: string
+    type: string,
+    url?: string | undefined,
     toggleIsFullScreenOpen: () => void
 }
 
