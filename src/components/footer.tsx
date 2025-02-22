@@ -9,13 +9,9 @@ const Footer = () => {
         <IconContext.Provider 
             value={{ 
                 className: 'socialIcons', 
-                size: '24px', 
+                size: '26px', 
                 style: {cursor: 'pointer', backgroundColor:'none', fill:'#92A8E0'}}}> 
     {/* hover color is in index.css */}
-
-    <div className=''>
-
-    </div>
     <a href='https://www.linkedin.com/in/nav-j-399ba112a/' target='_blank' rel="noreferrer">
         <FaLinkedinIn />
     </a>

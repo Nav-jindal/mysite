@@ -8,20 +8,20 @@ import ViewInFullScreen from "../components/viewInFullscreen"
 interface ExamplesType {
     id?: number
     title: string
+    type: string
     imgSrc: string
-    sentImgToIsFullScreenOpen: (arg0: string, arg1: string) => void
+    sentImgToIsFullScreenOpen: (arg0: string, arg1: string, arg2: string) => void
 }
 
 const ExamplesCard = ({
-    id,
     title,
+    type,
     imgSrc,
     sentImgToIsFullScreenOpen,
 } : ExamplesType) => <div 
                         className='group cursor-pointer w-full sm:w-[48%] lg:w-[25%] h-[300px] rounded-[8px]'
-                        onClick={()=>sentImgToIsFullScreenOpen(imgSrc, title)}
+                        onClick={()=>sentImgToIsFullScreenOpen(imgSrc, title, type)}
                     >
-    
     <h3 className='font-light text-[25.629px] mb-[12px]'> <span className='font-semibold'> {title}</span></h3>
     <div className='relative w-full h-full'>
         <img 
@@ -42,18 +42,9 @@ const Examples = () => {
     const exampleArr = [
         {
             id: 0,
-            title: 'FitFusion',
+            title: 'Fit Fusion',
             imgSrc: './images/portfolio1.png',
-        },
-        {
-            id: 1,
-            title: 'Mr.Artzy',
-            imgSrc: './images/portfolio2.png'
-        },
-        {
-            id: 2,
-            title: 'Alex Carter',
-            imgSrc: './images/portfolio3.png'
+            type: 'design (figma)',
         },
     ]
 
@@ -62,18 +53,21 @@ const Examples = () => {
     const [openedImageobject, setopenedImageObject] = useState<{
         imgSrc: string
         title: string
+        type: string
     }>({
         imgSrc: '',
-        title: ''
+        title: '',
+        type: ''
     })
 
     // Functions:
     const toggleIsFullScreenOpen = () => setIsFullScreenOpen(!isFullScreenOpen)
 
-    const sentImgToIsFullScreenOpen = (imgSrc: string, title: string) => {
+    const sentImgToIsFullScreenOpen = (imgSrc: string, title: string, type: string) => {
         setopenedImageObject({
             imgSrc: imgSrc ?? '',
-            title: title ?? ''
+            title: title ?? '',
+            type: type ?? ''
         })
         toggleIsFullScreenOpen()
     }
@@ -93,6 +87,7 @@ const Examples = () => {
                     key={example?.id}
                     id={example?.id}
                     title={example?.title}
+                    type={example?.type}
                     imgSrc={example?.imgSrc}
                     sentImgToIsFullScreenOpen={sentImgToIsFullScreenOpen}
                 />
@@ -103,6 +98,7 @@ const Examples = () => {
             <ViewInFullScreen
                 title={openedImageobject?.title}
                 imgSrc={openedImageobject?.imgSrc}
+                type={openedImageobject?.type}
                 toggleIsFullScreenOpen={toggleIsFullScreenOpen}
             />
         }
