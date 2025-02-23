@@ -75,8 +75,8 @@ const Contact = () => {
     }
 
     return <>
-     {isLoading && <div className='z-[100] pointer-events-none fixed top-0 left-0 right-0 bottom-0 w-full   h-full bg-[rgba(0,0,0,0.95)] flex justify-center items-center'>
-            <ClipLoader size={60} color="#0d0d0d" />
+     {isLoading && <div className='z-[100] fixed top-0 left-0 right-0 bottom-0 w-full   h-full bg-[rgba(0,0,0,0.95)] flex justify-center items-center'>
+            <ClipLoader size={80} color="#90a0de" />
     </div>}
     <div className={`{${isLoading ? 'pointer-events-none' : '' } flex-1 my-[60px] md:w-[75%] lg:w-[60%]`}>
         <div className='mb-[40px] lg:mb-[0px]'>
