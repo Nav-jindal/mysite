@@ -64,7 +64,7 @@ function App() {
 
   return <>
     <ToastContainer  limit={2}/>
-    <div className='mx-[auto] px-[20px] py-[25px] xl:max-w-[1250px] 2xl:max-w-[1350px] min-h-screen w-full flex flex-col justify-between'>
+    <div className='mx-[auto] px-[20px] py-[25px] xl:max-w-[1250px] 2xl:max-w-[1350px] min-h-dvh w-full flex flex-col justify-between'>
       <RouterProvider router={router}/>
     </div>
     </>

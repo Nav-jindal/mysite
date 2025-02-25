@@ -21,13 +21,13 @@ const ExamplesCard = ({
     url,
     sentImgToIsFullScreenOpen,
 } : ExamplesType) => <div 
-                        className='group cursor-pointer w-full sm:w-[48%] lg:w-[25%] h-[300px] rounded-[8px]'
+                        className='group cursor-pointer w-full sm:w-[48%] lg:w-[25%] rounded-[8px]'
                         onClick={()=>
                             url === '' ? sentImgToIsFullScreenOpen(imgSrc, title, type, url) :  
                             window.open("https://alexcarter.netlify.app", "_blank")
                         }
                     >
-    <div className='relative w-full h-full'>
+    <div className='relative w-full h-[300px]'>
         <img 
             className='absolute object-cover w-full h-full grayscale rounded-[8px] group-hover:grayscale-0 group-hover:object-contain'
             src={imgSrc} 
@@ -37,8 +37,10 @@ const ExamplesCard = ({
             
         </div>
     </div>
-    <h3 className='font-light text-[25.629px] mt-[12px]'> <span className='font-semibold'> {title}</span></h3>
-    <h4 className='font-light text-[#263669] text-[16pxpx]'>{type}</h4>
+    <div className='ml-[15px]'>
+        <h3 className='font-light text-[25.629px] mt-[12px]'> <span className='font-semibold'> {title}</span></h3>
+        <h4 className='font-light text-[#263669] text-[16pxpx]'>{type}</h4>
+    </div>
 
 </div>
 
@@ -96,7 +98,7 @@ const Examples = () => {
             </h2>
         </div>
 
-        <div className='flex items-center gap-[75px] sm:gap-[20px] flex-wrap'>
+        <div className='flex items-center gap-[45px] sm:gap-[20px] flex-wrap'>
             {exampleArr?.map((example)=>
                 <ExamplesCard
                     key={example?.id}

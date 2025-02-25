@@ -1,7 +1,10 @@
 // Packages:
 import { useForm } from "react-hook-form"
 import { isEmpty } from "lodash"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+// Components: 
+import Textfield from "../components/textfield"
 
 // React Toastify:
 import { toast,  ToastOptions } from 'react-toastify'
@@ -10,8 +13,8 @@ import { toast,  ToastOptions } from 'react-toastify'
 import { ClipLoader } from "react-spinners"
 
 // Typescript:
-interface ContactFormType {
-    name: string,
+export interface ContactFormType {
+    fullname: string,
     contactEmail: string,
     contactMessage: string
 }
@@ -41,12 +44,18 @@ const Contact = () => {
     // States:
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
+    // Effects:
+    useEffect(()=>{
+        console.log('allifeld: ', allFields)
+        console.log('errors: ', errors)
+    },[allFields, errors])
+
     // Function:
     const contactSubmit = async (data: ContactFormType) => {
         try {
             setIsLoading(true)
             const form = new FormData();
-            form.append('Fullname', data?.name)
+            form.append('Fullname', data?.fullname)
             form.append('Email', data?.contactEmail)
             form.append('Message', data?.contactMessage)
 
@@ -89,49 +98,40 @@ const Contact = () => {
             noValidate
         >
                 <div className='flex-1 basis-[47%]'>
-                    <h3 className={`${errors?.name ? '!text-[#682627]' : '' } 
-                                    ${!isEmpty(allFields?.name) && !errors?.name ? '!text-[16px] !font-normal' : '' }
-                                    text-[20px] text-[#263568] font-semibold`}>Fullname</h3>
-                    <input 
-                    className={` ${errors?.name ? '!bg-[#ECCECF] placeholder:!text-[#9C6D6D] !border-[#682627] text-[#682627]' : ''}
-                                ${!isEmpty(allFields?.name) && !errors?.name ? 'text-[20px] font-semibold !border-solid focus-visible:!font-normal' : '' }
-                                w-full mt-[10px] px-[12px] py-[10px] bg-[#CED7EC] border-l-[2px] border-none 
-                                border-[#263568] hover:border-solid focus-visible:border-solid text-[#263568]
-                                focus-visible:outline-none focus-visible:pl-[30px] placeholder:text-[#6D789C]`}
-                    type='text'
-                    {...register('name', {
-                        required: {
-                            value: true,
-                            message: 'Please, enter your name'
-                        }
-                    })}
-                    placeholder='John Doe'
+                    <Textfield 
+                        name='fullname'
+                        register={register}
+                        errors={errors?.fullname}
+                        allFields={allFields}
+                        placeholder='John Doe'
+                        errorMessage={errors?.fullname?.message}
+                        validationOptions={{
+                            required: {
+                                value: true,
+                                message: 'Please, enter your name'
+                            }
+                        }}
                     />
-                    {errors?.name && <p className='mt-[8px] text-[#682627] font-semibold text-[14px] float-right'>{errors?.name?.message}</p>}
                 </div>
                 <div className='flex-1 basis-[47%]'>
-                    <h3 className={`${errors?.contactEmail ? '!text-[#682627]' : '' } 
-                                    ${!isEmpty(allFields?.contactEmail) && !errors?.contactEmail ? '!text-[16px] !font-normal' : '' }
-                                    text-[20px] text-[#263568] font-semibold`}>Email</h3>
-                    <input 
-                        className={` ${errors?.contactEmail ? '!bg-[#ECCECF] placeholder:!text-[#9C6D6D] !border-[#682627] text-[#682627]' : ''}
-                            ${!isEmpty(allFields?.contactEmail) && !errors?.contactEmail ? 'text-[20px] font-semibold !border-solid focus-visible:!font-normal' : '' }
-                            w-full mt-[10px] px-[12px] py-[10px] bg-[#CED7EC] border-l-[2px] border-none 
-                            border-[#263568] hover:border-solid focus-visible:border-solid text-[#263568]
-                            focus-visible:outline-none focus-visible:pl-[30px] placeholder:text-[#6D789C]`}
-                        type='email' 
-                        placeholder='email@email.com'
-                        {...register('contactEmail', {
-                        required: {
-                            value: true,
-                            message: 'Please, enter your email'
-                        },
-                        pattern: {
-                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                            message: 'Invalid email format',
-                        }
-                    })}/>
-                    {errors?.contactEmail && <p className='mt-[8px] text-[#682627] text-[14px] font-semibold float-right'>{errors?.contactEmail?.message}</p>}
+                <Textfield 
+                        name='contactEmail'
+                        register={register}
+                        errors={errors?.contactEmail}
+                        allFields={allFields}
+                        placeholder='example@email.com'
+                        errorMessage={errors?.contactEmail?.message}
+                        validationOptions={{
+                            required: {
+                                value: true,
+                                message: 'Please, enter your email'
+                            },
+                            pattern: {
+                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                message: 'Invalid email format',
+                            }
+                        }}
+                    />
                 </div>
             
             
@@ -158,7 +158,7 @@ const Contact = () => {
             </div>
             <button 
                 type='submit'
-                className={`${isEmpty(errors) ? '' : 'pointer-events-none bg-[#8189a5]' } mt-[20px] px-[20px] w-max py-[10px] md:py-[12px] md:px-[30px] bg-[#263568] text-[#F0F2F6] hover:px-[45px]`}>
+                className={`${isEmpty(errors) ? '' : 'pointer-events-none bg-[#8189a5]' } mt-[20px] px-[20px] w-max py-[10px] md:py-[12px] md:px-[30px] bg-[#263568] text-[#F0F2F6] hover:px-[45px] transition-all duration-[200ms] ease-in-out`}>
                     Message me
             </button>
         </form>

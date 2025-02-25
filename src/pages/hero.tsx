@@ -14,9 +14,9 @@ const Hero = () => {
         
         <div className='flex items-center gap-[18px] flex-wrap'>
         
-            <NavLink to='contact' type='button' className='px-[20px] py-[10px] md:px-[30px] bg-[#263568] text-[#F0F2F6] text-[18px] sm:text-[20.25px] hover:px-[45px]'>Hire me</NavLink>
+            <NavLink to='contact' type='button' className='px-[20px] py-[10px] md:px-[30px] bg-[#263568] text-[#F0F2F6] text-[18px] sm:text-[20.25px] hover:px-[45px] transition-all duration-[200ms] ease-in-out'>Hire me</NavLink>
             
-            <NavLink to='examples' type='button' className='px-[20px] py-[10px] md:px-[30px] border-[2px] border-solid border-[#263568] text-[#263568] text-[18px] sm:text-[20.25px] hover:px-[45px]'>View my work</NavLink>
+            <NavLink to='examples' type='button' className='px-[20px] py-[10px] md:px-[30px] border-[2px] border-solid border-[#263568] text-[#263568] text-[18px] sm:text-[20.25px] hover:px-[45px] transition-all duration-[200ms] ease-in-out'>View my work</NavLink>
         
         </div>
         
