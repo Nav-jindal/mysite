@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom"
+
 // Typescript:
 interface TagsType{
     title: string
@@ -13,6 +15,7 @@ const Tags = ({
 
 const About = () => {
     // Constants:
+    const currentPage = useLocation()
     const skilsTags = [
         'html',
         'css',
@@ -27,10 +30,10 @@ const About = () => {
 
     return <div className='flex-1 my-[60px] flex justify-between flex-wrap'>
         <div>
-            <h3 className='text-[22.781px] text-[#AFB2BB]'>about</h3>
-            <h2 className='text-[32.437px] sm:text-[36.491px] mb-[18px] font-bold'>
+            <h3 className='text-[22.781px] text-[#AFB2BB]'>{currentPage.pathname.slice(1)}</h3>
+            <h2 className='text-[32.437px] sm:text-[36.491px] mb-[25px] font-bold'>
                 A bit about me
-                </h2>
+            </h2>
             <div className='max-w-[700px] font-light'>
                 <p className='mb-[18px] text-[#51545c] '>As a freelance web developer, I specialize in creating visually stunning and highly functional websites tailored to meet the unique needs of each client. With expertise in front-end development, responsive design, and modern web technologies like React, TypeScript, and Tailwind CSS, I bring creative ideas to life on the web.</p>
 

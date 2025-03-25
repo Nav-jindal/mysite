@@ -27,12 +27,12 @@ const Textfield = ({
 } : TextFieldType) => {
     return (<>
     <h3 className={`${errors ? '!text-[#682627]' : '' } 
-                                        ${!isEmpty(!allFields?.[name]) && errors ? '!text-[16px] !font-normal' : '' }
-                                        text-[20px] text-[#263568] font-semibold capitalize`}>{name}</h3>
+                                        ${!isEmpty(!allFields?.[name]) && !errors ? 'text-[14.22px] !font-normal' : 'text-[20px]' }
+                                        text-[#263568] font-semibold capitalize`}>{name}</h3>
                         <input 
                         className={` ${errors ? '!bg-[#ECCECF] placeholder:!text-[#9C6D6D] !border-[#682627] text-[#682627]' : ''}
                                     ${!isEmpty(allFields?.[name]) && !errors ? 'text-[20px] font-semibold !border-solid focus-visible:!font-normal' : '' }
-                                    w-full mt-[10px] px-[12px] py-[10px] bg-[#CED7EC] border-l-[2px] border-none 
+                                    w-full mt-[10px] px-[18px] py-[10px] bg-[#CED7EC] border-l-[2px] border-none 
                                     border-[#263568] hover:border-solid focus-visible:border-solid text-[#263568]
                                     focus-visible:outline-none focus-visible:pl-[30px] placeholder:text-[#6D789C]`}
                         type={type ?? 'text'}

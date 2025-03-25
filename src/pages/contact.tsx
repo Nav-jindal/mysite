@@ -1,10 +1,12 @@
 // Packages:
 import { useForm } from "react-hook-form"
 import { isEmpty } from "lodash"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 
 // Components: 
 import Textfield from "../components/textfield"
+import Dropdown from "../components/dropdown"
 
 // React Toastify:
 import { toast,  ToastOptions } from 'react-toastify'
@@ -15,17 +17,30 @@ import { ClipLoader } from "react-spinners"
 // Typescript:
 export interface ContactFormType {
     fullname: string,
-    contactEmail: string,
-    contactMessage: string
+    email: string,
+    contactMessage: string,
+    service: string
 }
 
 const Contact = () => {
     // Constant:
+    const currentPage = useLocation()
+    const { service = 'Custom Web Design' } = currentPage?.state ?? {}
+    const serviceOptions = [
+        { value: "customWebDesign", label: "Personalized Site" },
+        { value: "digitalCard", label: "Digital Card" },
+        { value: "personalPortfolio", label: "Custom Web Design" },
+        { value: "consultation", label: "Consultation" },
+    ]
+    useEffect(()=>{
+        console.log('data: ', currentPage)
+    },[currentPage])
     const {
         register, 
         handleSubmit,
         watch,
         formState: { errors },
+        control,
         reset,
     } = useForm<ContactFormType>({
         mode: 'all'
@@ -44,19 +59,13 @@ const Contact = () => {
     // States:
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
-    // Effects:
-    useEffect(()=>{
-        console.log('allifeld: ', allFields)
-        console.log('errors: ', errors)
-    },[allFields, errors])
-
     // Function:
     const contactSubmit = async (data: ContactFormType) => {
         try {
             setIsLoading(true)
             const form = new FormData();
             form.append('Fullname', data?.fullname)
-            form.append('Email', data?.contactEmail)
+            form.append('Email', data?.email)
             form.append('Message', data?.contactMessage)
 
             // Sending to data to owner's email
@@ -89,7 +98,7 @@ const Contact = () => {
     </div>}
     <div className={`{${isLoading ? 'pointer-events-none' : '' } flex-1 my-[60px] md:w-[75%] lg:w-[60%]`}>
         <div className='mb-[40px] lg:mb-[0px]'>
-            <h3 className='text-[22.781px] text-[#9699A1]'>contact</h3>
+            <h3 className='text-[22.781px] text-[#9699A1]'>{currentPage.pathname.slice(1)}</h3>
             <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[25px]'>Get in touch, <span className='font-semibold'>I’d love to connect!</span></h2>
         </div>
         <form 
@@ -114,13 +123,13 @@ const Contact = () => {
                     />
                 </div>
                 <div className='flex-1 basis-[47%]'>
-                <Textfield 
-                        name='contactEmail'
+                    <Textfield 
+                        name='email'
                         register={register}
-                        errors={errors?.contactEmail}
+                        errors={errors?.email}
                         allFields={allFields}
                         placeholder='example@email.com'
-                        errorMessage={errors?.contactEmail?.message}
+                        errorMessage={errors?.email?.message}
                         validationOptions={{
                             required: {
                                 value: true,
@@ -133,11 +142,30 @@ const Contact = () => {
                         }}
                     />
                 </div>
+
+                <div className='w-full md:basis-[48%]'>
+                    <Dropdown 
+                        name='service'
+                        valueFromServicePage={service}
+                        control={control}
+                        errors={errors?.service}
+                        errorMessage={errors?.service?.message}
+                        placeholder='Choose a service'
+                        options={serviceOptions}
+                        allFields={allFields}
+                        validationOptions={{
+                            required: {
+                                value: true,
+                                message: 'Please, choose a service'
+                            },
+                        }}
+                    />
+                </div>
             
             
             <div className='flex-1 basis-[100%]'>
                 <h3 className={`${errors?.contactMessage ? '!text-[#682627]' : '' } 
-                                    ${!isEmpty(allFields?.contactMessage) && !errors?.contactMessage ? '!text-[16px] !font-normal' : '' }
+                                    ${!isEmpty(allFields?.contactMessage) && !errors?.contactMessage ? '!text-[14.22px] !font-normal' : '' }
                                     text-[20px] text-[#263568] font-semibold`}>Message</h3>
                 <textarea 
                 className={` ${errors?.contactMessage ? '!bg-[#ECCECF] placeholder:!text-[#9C6D6D] !border-[#682627] text-[#682627]' : ''}

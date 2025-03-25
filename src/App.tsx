@@ -6,6 +6,7 @@ import Hero from './pages/hero'
 import About from './pages/about'
 import Contact from './pages/contact'
 import Examples from './pages/examples'
+import Services from './pages/services'
 
 // Components:
 import Navbar from './components/navbar'
@@ -43,6 +44,10 @@ function App() {
     {
       path: '/about',
       element: <About />
+    },
+    {
+      path: '/services',
+      element: <Services />
     },
     {
       path: '/examples',
