@@ -32,9 +32,6 @@ const Contact = () => {
         { value: "personalPortfolio", label: "Custom Web Design" },
         { value: "consultation", label: "Consultation" },
     ]
-    useEffect(()=>{
-        console.log('data: ', currentPage)
-    },[currentPage])
     const {
         register, 
         handleSubmit,
