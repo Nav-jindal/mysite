@@ -18,25 +18,25 @@ const Services = () => {
             id: 0,
             title: 'Personalized Site',
             icon:  <FaUser size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered',
+            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered.',
         },
         {
             id: 1,
             title: 'Digital Card',
             icon:  <FaIdCard size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered',
+            desc: 'A digital card website lets users create and share interactive business cards for seamless networking.',
         },
         {
             id: 2,
             title: 'Custom Web Design',
             icon:  <FaPenNib size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered',
+            desc: 'A custom web design website offers tailored, unique, and user-focused designs to enhance brand identity and user experience.',
         },
         {
             id: 3,
             title: 'Consultation',
             icon:  <FaUserTie size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered',
+            desc: `Book a one-on-one consultation to bring your web design vision to life.`,
         },
     ]
 
