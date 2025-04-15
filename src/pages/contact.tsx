@@ -25,7 +25,7 @@ export interface ContactFormType {
 const Contact = () => {
     // Constant:
     const currentPage = useLocation()
-    const { service = 'Custom Web Design' } = currentPage?.state ?? {}
+    const { service = 'Personalized Site' } = currentPage?.state ?? {}
     const serviceOptions = [
         { value: "customWebDesign", label: "Personalized Site" },
         { value: "digitalCard", label: "Digital Card" },
