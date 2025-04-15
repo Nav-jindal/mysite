@@ -18,25 +18,25 @@ const Services = () => {
             id: 0,
             title: 'Personalized Site',
             icon:  <FaUser size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for job hunting, business growth, or branding. I have you covered.',
+            desc: 'Your website will be clean, functional, and built to empower your success—whether for lead generation, or booking systems. I have you covered.',
         },
         {
             id: 1,
             title: 'Digital Card',
             icon:  <FaIdCard size={iconSize} style={{fill: iconColor}} />,
-            desc: 'A digital card website lets users create and share interactive business cards for seamless networking.',
+            desc: 'I help you create interactive digital business cards for seamless, professional networking which can be shared with anyone and anywhere',
         },
         {
             id: 2,
             title: 'Custom Web Design',
             icon:  <FaPenNib size={iconSize} style={{fill: iconColor}} />,
-            desc: 'A custom web design website offers tailored, unique, and user-focused designs to enhance brand identity and user experience.',
+            desc: 'I help you create a custom web design tailored to your target audience, elevating your brand identity and boosting your leads',
         },
         {
             id: 3,
             title: 'Consultation',
             icon:  <FaUserTie size={iconSize} style={{fill: iconColor}} />,
-            desc: `Book a one-on-one consultation to bring your web design vision to life.`,
+            desc: `Book a consultation to turn your vision into a focused web design strategy, tailored to your boast your sales and leads.`,
         },
     ]
 
@@ -45,7 +45,7 @@ const Services = () => {
         <h2 className='text-[32.437px] sm:text-[36.491px] mb-[25px] font-bold'>
             What do you need?
         </h2>
-        <div className='flex items-center gap-[30px] flex-wrap'>
+        <div className='flex items-stretch gap-[30px] flex-wrap'>
             {servicesArr?.map((service)=>
                 <ServicesCard
                     key={service?.id}

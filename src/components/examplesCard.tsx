@@ -33,7 +33,7 @@ const ExamplesCard = ({
     </div>
     <div className='ml-[15px]'>
         <h3 className='font-light text-[25.629px] mt-[12px]'> <span className='font-semibold'> {title}</span></h3>
-        <h4 className='font-light text-[#263669] text-[16pxpx]'>{type}</h4>
+        <h4 className=' text-[#263669]'>{type}</h4>
     </div>
 
 </div>

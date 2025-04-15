@@ -14,14 +14,14 @@ const Examples = () => {
             id: 0,
             title: 'Fit Fusion',
             imgSrc: './images/portfolio1.png',
-            type: 'design (figma)',
+            type: 'Design only',
         },
         {
             id: 1,
             title: 'Alex Carter',
             imgSrc: './images/portfolio2.png',
             url: 'http://alexcarter.netlify.app',
-            type: 'design + code',
+            type: 'Live Demo',
         },
     ]
 

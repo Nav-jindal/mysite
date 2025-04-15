@@ -9,7 +9,7 @@ const Hero = () => {
                 <h2 className='text-[20.25px] font-bold text-[#1E306C]'>Web Designer / Developer</h2>
                 <h1 className='text-[41.053px] sm:text-[58.452px]'>Hi, I'm <span className="font-bold">Nav Jindal</span></h1>
             </div>
-            <p className='text-[#51545c] text-[20.25px] font-light'>I design and develop impactful websites that empower your success </p>
+            <p className='text-[#51545c] text-[20.25px] font-light'>I help coaches, gyms, and businesses boost their leads and profits with smart, strategic web design </p>
         </div>
         
         <div className='flex items-center gap-[18px] flex-wrap'>
