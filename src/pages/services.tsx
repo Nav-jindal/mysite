@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom"
 import ServicesCard from "../components/servicesCard"
 
 // Icons:
-import { FaIdCard, FaPenNib, FaUser, FaUserTie } from "react-icons/fa6"
+import { FaIdCard, FaPenNib, FaUser, FaUserTie, FaClock  } from "react-icons/fa6"
 
 
 const Services = () => {
@@ -16,15 +16,15 @@ const Services = () => {
     const servicesArr = [
         {
             id: 0,
-            title: 'Personalized Site',
+            title: 'Lead Generator',
             icon:  <FaUser size={iconSize} style={{fill: iconColor}} />,
-            desc: 'Your website will be clean, functional, and built to empower your success—whether for lead generation, or booking systems. I have you covered.',
+            desc: 'We build high converting Landing pages with booking systems - designed to double your leads. if not, we will return your money.',
         },
         {
             id: 1,
-            title: 'Digital Card',
+            title: 'Grow with content',
             icon:  <FaIdCard size={iconSize} style={{fill: iconColor}} />,
-            desc: 'I help you create interactive digital business cards for seamless, professional networking which can be shared with anyone and anywhere',
+            desc: 'We will help you showcase your expertise by organizing your content into a blog built to educate and expand your reach.',
         },
         {
             id: 2,
@@ -34,6 +34,12 @@ const Services = () => {
         },
         {
             id: 3,
+            title: 'Launch Site in 5-days',
+            icon:  <FaClock size={iconSize} style={{fill: iconColor}} />,
+            desc: `A conversion focused site, designed & launched in just 7-days - so you can start getting clients faster.`,
+        },
+        {
+            id: 4,
             title: 'Consultation',
             icon:  <FaUserTie size={iconSize} style={{fill: iconColor}} />,
             desc: `Book a consultation to turn your vision into a focused web design strategy, tailored to your boast your sales and leads.`,

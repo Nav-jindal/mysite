@@ -20,7 +20,7 @@ const Hero = () => {
         
         </div>
         
-        <div className='fixed z-[-2] opacity-15 max-lg:flex max-lg:justify-center max-lg:items-center lg:opacity-100 max-lg:h-full lg:absolute w-[800px] right-0 bottom-0 lg:w-[52%] 2xl:w-[40%]'>
+        <div className='hidden sm:block fixed z-[-2] opacity-30 lg:opacity-100 max-lg:h-full lg:absolute w-[800px] right-0 bottom-0 lg:w-[44%] 2xl:w-[650px] 2xl:right-24'>
             <img 
                 className='h-[auto] w-full object-cover'
                 src='./images/heroBackground.png'

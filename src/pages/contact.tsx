@@ -25,11 +25,12 @@ export interface ContactFormType {
 const Contact = () => {
     // Constant:
     const currentPage = useLocation()
-    const { service = 'Personalized Site' } = currentPage?.state ?? {}
+    const { service = 'Lauch Site in 5-Days' } = currentPage?.state ?? {}
     const serviceOptions = [
-        { value: "customWebDesign", label: "Personalized Site" },
-        { value: "digitalCard", label: "Digital Card" },
-        { value: "personalPortfolio", label: "Custom Web Design" },
+        { value: "leadGenerator", label: "Lead Generator" },
+        { value: "GrowWithContent", label: "Grow with content" },
+        { value: "LaunchSiteIn%Days", label: "Lauch Site in 5-Days" },
+        { value: "CustomWebDesign", label: "Custom Web Design" },
         { value: "consultation", label: "Consultation" },
     ]
     const {
