@@ -42,7 +42,7 @@ const Hero = () => {
                 variants={contentVariant}
                 className='flex items-center gap-[18px] flex-wrap'
             >
-                <NavLink to='contact' type='button' className='px-[20px] py-[14px] md:px-[30px] bg-[#E02720] text-[18px] sm:text-[20.25px] hover:px-[45px] transition-all duration-[200ms] ease-in-out'>Book now</NavLink>
+                <a href='https://calendly.com/navjindal-peakpixelworks/30min' target='_blank' rel='noreferrer' type='button' className='px-[20px] py-[14px] md:px-[30px] bg-[#E02720] text-[18px] sm:text-[20.25px] hover:px-[45px] transition-all duration-[200ms] ease-in-out'>Book now</a>
                 <NavLink to='examples' type='button' className='px-[20px] py-[14px] md:px-[30px] border-[2px] border-solid border-[#E02720] text-[#E02720] text-[18px] sm:text-[20.25px] hover:px-[45px] transition-all duration-[200ms] ease-in-out'>Recent works</NavLink>
             </motion.div>
         </div>

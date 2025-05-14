@@ -22,15 +22,15 @@ const Works = () => {
     const exampleArr = [
         {
             id: 1,
-            title: 'Alex Carter',
+            title: 'Fitness Coach',
             imgSrc: './images/portfolio2.png',
-            url: 'http://alexcarter.netlify.app',
+            url: 'https://alexcarter.netlify.app',
         },
         {
             id: 2,
-            title: 'Fitness Portfolio',
-            imgSrc: './images/portfolio2.png',
-            url: 'http://alexcarter.netlify.app',
+            title: 'Job Portfolio',
+            imgSrc: './images/jobPortfolio.jpg',
+            url: 'https://johndoe2323.netlify.app/',
         },
     ]
 
