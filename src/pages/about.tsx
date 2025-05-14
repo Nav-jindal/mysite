@@ -48,10 +48,10 @@ const About = () => {
             </h2>
             <div className='max-w-[700px] font-light '>
                 <p className='mb-[18px] text-[#807F7F]'>
-                    As a freelance web developer, I create visually stunning and highly functional websites tailored to your needs. With expertise in React, TypeScript, and Tailwind CSS, I specialize in front-end development, responsive design, and user-friendly experiences.
+                    As a freelance web developer, I create visually stunning and highly functional websites tailored to your needs. With expertise in Web Development, Framer, Webflow, I specialize in incresing your sales and leads.
                 </p>
                 <p className='mb-[18px] text-[#807F7F]'>
-                    From sleek landing pages to dynamic web applications, I focus on seamless functionality and pixel-perfect designs to help businesses grow their online presence.
+                    From sleek landing pages to dynamic web applications, I focus on seamless functionality and pixel-perfect designs to help businesses reach there goals using stretegic web design.
                 </p>
                 <p className='text-[#807F7F]'>Let’s collaborate to bring your ideas to life on the web!</p>
             </div>

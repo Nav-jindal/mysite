@@ -23,7 +23,7 @@ const Works = () => {
         {
             id: 1,
             title: 'Fitness Coach',
-            imgSrc: './images/portfolio2.png',
+            imgSrc: './images/fitnessCoach.jpg',
             url: 'https://alexcarter.netlify.app',
         },
         {
