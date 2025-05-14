@@ -2,11 +2,10 @@
 import { ToastContainer } from 'react-toastify'
 
 // Pages:
-import Hero from './pages/hero'
+import Home from './pages/home/home'
 import About from './pages/about'
 import Contact from './pages/contact'
-import Examples from './pages/examples'
-import Services from './pages/services'
+import Works from './pages/works'
 
 // Components:
 import Navbar from './components/navbar'
@@ -39,19 +38,15 @@ function App() {
   const routerPaths = [
     {
       index: true,
-      element:<Hero />,
+      element:<Home />,
     },
     {
       path: '/about',
       element: <About />
     },
     {
-      path: '/services',
-      element: <Services />
-    },
-    {
-      path: '/examples',
-      element: <Examples />
+      path: '/works',
+      element: <Works />
     },
     {
       path: '/contact',
@@ -69,7 +64,7 @@ function App() {
 
   return <>
     <ToastContainer  limit={2}/>
-    <div className='mx-[auto] px-[20px] py-[25px] xl:max-w-[1250px] 2xl:max-w-[1350px] min-h-dvh w-full flex flex-col justify-between'>
+    <div className='mx-[auto] px-[20px] xl:max-w-[1250px] 2xl:max-w-[1350px] w-full flex flex-col justify-between min-h-screen'>
       <RouterProvider router={router}/>
     </div>
     </>

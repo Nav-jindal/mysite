@@ -22,8 +22,8 @@ const NavigationLink = ({
     currentPage,
     toggleIsNavbarOpen
 }: NavigationLinkType) =>   <NavLink 
-                                className={`${currentPage === title ? 'font-bold pointer-events-none' : ' font-normal text-[#92A8E0]' } 
-                                            text-[20.25px]  hover:font-bold hover:text-[#263568]`}
+                                className={`${currentPage === title ? 'font-bold pointer-events-none' : ' !font-normal text-[#555454]' } 
+                                            text-[20.25px]  hover:font-bold hover:text-[#E02720]`}
                                 to={title}
                                 onClick={toggleIsNavbarOpen}
                                 >
@@ -43,9 +43,9 @@ const Navbar = ({
     const toggleIsNavbarOpen = () => setIsNavBarOpen(!isNavBarOpen)  
 
     // Return:
-    return <div className='flex gap-[24px] items-center justify-between'> 
+    return <div className='flex py-[20px] gap-[24px] items-center justify-between'> 
             <img 
-                className='w-[40px] aspect-square'
+                className='w-[30px] aspect-square'
                 src='./images/logo.svg' 
                 alt='logo' 
             />

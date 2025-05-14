@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form"
 import { isEmpty } from "lodash"
 import { useState } from "react"
 import { useLocation } from "react-router-dom"
+import { HiOutlineInformationCircle } from "react-icons/hi"
+import { motion, Variants } from "motion/react"
+
 
 // Components: 
 import Textfield from "../components/textfield"
-import Dropdown from "../components/dropdown"
 
 // React Toastify:
 import { toast,  ToastOptions } from 'react-toastify'
@@ -24,21 +26,23 @@ export interface ContactFormType {
 
 const Contact = () => {
     // Constant:
+    const contentVariant: Variants = {
+        hidden: {
+            x: -200,
+            opacity: 0
+
+        },
+        show: {
+            x: 0,
+            opacity: 1
+        }
+    }
     const currentPage = useLocation()
-    const { service = 'Lauch Site in 5-Days' } = currentPage?.state ?? {}
-    const serviceOptions = [
-        { value: "leadGenerator", label: "Lead Generator" },
-        { value: "GrowWithContent", label: "Grow with content" },
-        { value: "LaunchSiteIn%Days", label: "Lauch Site in 5-Days" },
-        { value: "CustomWebDesign", label: "Custom Web Design" },
-        { value: "consultation", label: "Consultation" },
-    ]
     const {
         register, 
         handleSubmit,
         watch,
         formState: { errors },
-        control,
         reset,
     } = useForm<ContactFormType>({
         mode: 'all'
@@ -95,11 +99,20 @@ const Contact = () => {
             <ClipLoader size={80} color="#90a0de" />
     </div>}
     <div className={`{${isLoading ? 'pointer-events-none' : '' } flex-1 my-[60px] md:w-[75%] lg:w-[60%]`}>
-        <div className='mb-[40px] lg:mb-[0px]'>
-            <h3 className='text-[22.781px] text-[#9699A1]'>{currentPage.pathname.slice(1)}</h3>
-            <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[25px]'>Get in touch, <span className='font-semibold'>I’d love to connect!</span></h2>
-        </div>
-        <form 
+        <motion.div 
+            initial='hidden'
+            animate='show'
+            transition={{duration:.75, ease: 'easeInOut'}}
+            variants={contentVariant}
+            className='mb-[40px] lg:mb-[0px]'>
+            <h3 className='text-[16px] text-[#807F7F]'>{currentPage.pathname}</h3>
+            <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[25px]'>Get in touch, <span className='font-semibold'>I'd love to connect!</span></h2>
+        </motion.div>
+        <motion.form 
+            initial='hidden'
+            animate='show'
+            transition={{delay: .6, duration:.75, ease: 'easeInOut'}}
+            variants={contentVariant}
             className='flex gap-[24px] flex-wrap'
             onSubmit={handleSubmit(contactSubmit)} 
             noValidate
@@ -115,7 +128,7 @@ const Contact = () => {
                         validationOptions={{
                             required: {
                                 value: true,
-                                message: 'Please, enter your name'
+                                message: 'enter a name'
                             }
                         }}
                     />
@@ -131,63 +144,47 @@ const Contact = () => {
                         validationOptions={{
                             required: {
                                 value: true,
-                                message: 'Please, enter your email'
+                                message: 'enter a email'
                             },
                             pattern: {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message: 'Invalid email format',
+                                message: 'invalid email format',
                             }
                         }}
                     />
                 </div>
-
-                <div className='w-full md:basis-[48%]'>
-                    <Dropdown 
-                        name='service'
-                        valueFromServicePage={service}
-                        control={control}
-                        errors={errors?.service}
-                        errorMessage={errors?.service?.message}
-                        placeholder='Choose a service'
-                        options={serviceOptions}
-                        allFields={allFields}
-                        validationOptions={{
-                            required: {
-                                value: true,
-                                message: 'Please, choose a service'
-                            },
-                        }}
-                    />
-                </div>
-            
             
             <div className='flex-1 basis-[100%]'>
-                <h3 className={`${errors?.contactMessage ? '!text-[#682627]' : '' } 
-                                    ${!isEmpty(allFields?.contactMessage) && !errors?.contactMessage ? '!text-[14.22px] !font-normal' : '' }
-                                    text-[20px] text-[#263568] font-semibold`}>Message</h3>
+                <h3 className={`${!isEmpty(allFields?.contactMessage) && !errors?.contactMessage ? '!text-[14.22px] !font-normal' : '' }
+                                    text-[20px] text-[#F6F6F6] font-semibold`}>Message</h3>
                 <textarea 
-                className={` ${errors?.contactMessage ? '!bg-[#ECCECF] placeholder:!text-[#9C6D6D] !border-[#682627] text-[#682627]' : ''}
+                className={` ${errors?.contactMessage ? '!bg-[#442f2f] placeholder:!text-[#ad7676] !border-[#E02720] text-[#F6F6F6]' : ''}
                     ${!isEmpty(allFields?.contactMessage) && !errors?.contactMessage ? 'text-[20px] font-semibold !border-solid focus-visible:!font-normal' : '' }
-                    w-full h-[160px] resize-none mt-[10px] px-[12px] py-[10px] bg-[#CED7EC] border-l-[2px] border-none 
-                    border-[#263568] hover:border-solid focus-visible:border-solid text-[#263568]
-                    focus-visible:outline-none focus-visible:pl-[30px] placeholder:text-[#6D789C]`}
+                    w-full h-[160px] resize-none mt-[10px] p-[20px] bg-[#292929] border-l-[4px] border-none 
+                    border-[#F6F6F6] hover:border-solid focus-visible:border-solid text-[#F6F6F6]
+                    focus-visible:outline-none focus-visible:pl-[30px] placeholder:text-[#A2A2A2]`}
                 placeholder='Type your message here...'
                 {...register('contactMessage', {
                     required : {
                         value: true,
-                        message: 'Pleae write your query'
+                        message: 'write a query'
                     }
                 })}>
 
                 </textarea>
-                {errors?.contactMessage && <p className=' mt-[8px] text-[#682627] text-[14px] font-semibold float-right'>{errors?.contactMessage?.message}</p>}
+                {errors?.contactMessage && 
+                    <div className='mt-[8px] flex items-center gap-[8px] justify-end'>
+                        <HiOutlineInformationCircle size={24} stroke='#d14545'/>
+                        <p className='text-[#d14545] text-[14px] font-semibold '>{errors?.contactMessage?.message}</p>
+                    </div>
+                }
             </div>
             <button 
                 type='submit'
-                className={`${isEmpty(errors) ? '' : 'pointer-events-none bg-[#8189a5]' } mt-[20px] px-[20px] w-max py-[10px] md:py-[12px] md:px-[30px] bg-[#263568] text-[#F0F2F6] hover:px-[45px] transition-all duration-[200ms] ease-in-out`}>
+                className={`${isEmpty(errors) ? '' : 'pointer-events-none bg-[#2e2e2e] text-[#a0a0a0]' } mt-[20px] px-[20px] w-max py-[10px] md:py-[12px] md:px-[30px] bg-[#E02720] text-[#F0F2F6] hover:px-[45px] transition-all duration-[200ms] ease-in-out`}>
                     Message me
             </button>
-        </form>
+        </motion.form>
     </div>
     </>
 }

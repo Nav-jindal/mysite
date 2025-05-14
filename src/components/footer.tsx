@@ -1,24 +1,20 @@
 // Packages:
-import { IconContext } from 'react-icons'
 
-// Icons:
-import { FaLinkedinIn, FaEnvelope } from "react-icons/fa6"
+
 
 const Footer = () => {
-    return <div className='mt-[30px] flex gap-[24px] items-center'>
-        <IconContext.Provider 
-            value={{ 
-                className: 'socialIcons', 
-                size: '26px', 
-                style: {cursor: 'pointer', backgroundColor:'none', fill:'#92A8E0'}}}> 
-    {/* hover color is in index.css */}
-    <a href='https://www.linkedin.com/in/nav-j-399ba112a/' target='_blank' rel="noreferrer">
-        <FaLinkedinIn />
-    </a>
-    <a href='mailto:navjindal201998@gmail.com' target='_blank' rel="noreferrer">
-        <FaEnvelope />
-    </a>
-</IconContext.Provider>
+    return <div className='my-[18px] text-[14px]'>
+    <div className='flex items-center gap-[24px] flex-wrap lg:justify-end'>
+        <a href='https://www.linkedin.com/in/nav-j-399ba112a/' target='_blank' rel="noreferrer" className='text-[#b95252] hover:text-[#f6f6f6]'>
+            linkedin
+        </a>
+        <a href='https://www.linkedin.com/in/nav-j-399ba112a/' target='_blank' rel="noreferrer" className='text-[#b95252] hover:text-[#f6f6f6]'>
+            instagram
+        </a>
+        <span className='text-[#807F7F] hover:text-[#f6f6f6]'>
+            navjindal@peakpixelworks.com
+        </span>
+    </div>
     </div>
 }
 

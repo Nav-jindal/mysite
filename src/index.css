@@ -11,7 +11,7 @@
 *{
   font-family: Bahnschrift;
   font-optical-sizing: auto;
-  color: #020307;
+  color: #F6F6F6;
 }
 
 html {
@@ -21,16 +21,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #F0F2F6;
-  color: #070a16;
+  background-color: #0A0A0A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .Toastify__toast {
   margin-bottom: 20px !important;
-}
-
-.socialIcons:hover {
-  fill: #263568 !important;
 }
