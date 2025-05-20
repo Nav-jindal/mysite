@@ -28,6 +28,12 @@ const Works = () => {
         },
         {
             id: 2,
+            title: 'Fit Fusion',
+            imgSrc: './images/fitFusion.jpg',
+            url: 'https://fitfusion2343.netlify.app/',
+        },
+        {
+            id: 3,
             title: 'Job Portfolio',
             imgSrc: './images/jobPortfolio.jpg',
             url: 'https://johndoe2323.netlify.app/',
