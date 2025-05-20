@@ -7,6 +7,7 @@ import { FaBars } from "react-icons/fa6"
 
 // Typescript:
 import { RouterPathsType } from "../App"
+import { motion, Variants } from "motion/react"
 
 interface NavigationLinkType {
     id?: number
@@ -22,8 +23,8 @@ const NavigationLink = ({
     currentPage,
     toggleIsNavbarOpen
 }: NavigationLinkType) =>   <NavLink 
-                                className={`${currentPage === title ? 'font-bold pointer-events-none' : ' !font-normal text-[#555454]' } 
-                                            text-[20.25px]  hover:font-bold hover:text-[#E02720]`}
+                                className={`${currentPage === title ? 'font-bold pointer-events-none' : ' !font-normal text-[#6d6d6d]' } 
+                                            text-[20.25px]  hover:font-bold hover:text-[#E02720] hover:shadow-[0_2px_0_0_rgb(224,73,68)]`}
                                 to={title}
                                 onClick={toggleIsNavbarOpen}
                                 >
@@ -35,7 +36,24 @@ const Navbar = ({
 }:RouterPathsType) => {
     // Constants:
     const currentPage = useLocation()
-
+    const hamburgerMenuVariant: Variants = {
+        hidden: {
+            x: '100%',
+            opacity: 0,
+        },
+        visible: {
+            x: '0px',
+            opacity: 1,
+        }
+    }
+    const blackOverlayVariant: Variants = {
+        hidden: {
+            opacity: 0,
+        },
+        visible: {
+            opacity: 1,
+        }
+    }
     // States:
     const [isNavBarOpen, setIsNavBarOpen] = useState<boolean>(false) 
 
@@ -51,26 +69,33 @@ const Navbar = ({
             />
 
             {/* Hamburger Menu */}
-            <div className='md:hidden'>
+            <div className={`absolute z-[100] right-[20px] sm:hidden`}>
                 <FaBars 
-                    className={` cursor-pointer fill-[#92A8E0]`}
+                    className={` cursor-pointer fill-[#ffffff]`}
                     size={24} 
-                    onClick={toggleIsNavbarOpen}
+                    onClick={()=>setIsNavBarOpen(!isNavBarOpen)}
                 />
             </div>
 
-            <div className={`${ isNavBarOpen ? '' : 'hidden' } md:hidden z-[30] pointer-events-none bg-[rgba(0,0,0,0.75)] absolute top-0 bottom-0 left-0 right-0 block`}></div>
+            <motion.div 
+                initial='hidden'
+                animate={isNavBarOpen ? 'visible' : 'hidden'}
+                variants={blackOverlayVariant}
+                transition={{duration: .75, ease: 'easeInOut'}}
+                className='sm:hidden z-[30] pointer-events-none bg-[rgba(0,0,0,0.75)] fixed top-0 bottom-0 left-0 right-0 block'>
+                
+            </motion.div>
 
-            <div className={`${ isNavBarOpen ? 'block' : 'hidden' } z-[50] py-[25px] px-[20px] md:z-[0] md:p-0 absolute right-0 top-0 bottom-0 w-[75%] sm:w-[35%] md:w-max bg-[#F0F2F6] md:bg-[transparent] md:block md:static`}>
-                <div className='md:hidden'>
-                    <FaBars 
-                        className={`md:hidden cursor-pointer fill-[#92A8E0]`}
-                        size={24} 
-                        onClick={toggleIsNavbarOpen}
-                    />
-                </div>
-                <div className={`mt-[30px] flex  flex-col gap-[40px] md:flex-row md:mt-[0px] items-center`}>
-                {routerPaths.map((page, index)=>
+            <motion.div 
+                initial='hidden'
+                animate={isNavBarOpen ? 'visible' : 'hidden'}
+                exit='hidden'
+                variants={hamburgerMenuVariant}
+                transition={{duration: .75, ease: 'easeInOut'}}
+                className='origin-right z-[50] py-[50px] px-[20px] md:z-[0] md:p-0 fixed right-0 top-0 bottom-0 w-[75%] min-[540px]:w-[45%] bg-[#313030] sm:hidden'
+            >
+                <div className='mt-[30px] flex flex-col gap-[40px] items-center'>
+                {routerPaths?.map((page, index)=>
                     <NavigationLink 
                         key={index}
                         title={page.path ?? '/'}
@@ -79,8 +104,18 @@ const Navbar = ({
                     />
                     )}
                 </div>
-            </div>
+            </motion.div>
             
+            <div className='hidden sm:flex gap-[32px]'>
+                {routerPaths?.map((page, index)=>
+                    <NavigationLink 
+                        key={index}
+                        title={page.path ?? '/'}
+                        currentPage={currentPage.pathname}
+                        toggleIsNavbarOpen={toggleIsNavbarOpen}
+                    />
+                )}
+            </div>
     </div>
 }
 

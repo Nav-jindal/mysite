@@ -56,7 +56,7 @@ const Hero = () => {
                 <picture>
                     <source media='(min-width:1024px)' srcSet='./images/heroBackground.png' />
                     <img 
-                        className='max-lg:max-h-[400px] h-auto w-full object-cover '
+                        className='max-lg:max-h-[400px] h-auto w-full object-cover'
                         src='./images/heroBackgroundMobile.png'
                         alt='Hero Background'
                     />
