@@ -5,7 +5,7 @@ import Hero from "./hero"
 import Features from "./features"
 import Services from "./services"
 import WhyWebsite from "./whyWebsite"
-import Testimonials from "./testimonials"
+// import Testimonials from "./testimonials"
 import BookSession from "./bookSession"
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
         <Features />
         <Services />
         <WhyWebsite />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <BookSession />
     </div>
 }
