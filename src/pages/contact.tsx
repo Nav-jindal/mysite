@@ -6,6 +6,8 @@ import { useLocation } from "react-router-dom"
 import { HiOutlineInformationCircle } from "react-icons/hi"
 import { motion, Variants } from "motion/react"
 
+// React Icons:
+import { FaInstagram, FaLinkedinIn } from "react-icons/fa6"
 
 // Components: 
 import Textfield from "../components/textfield"
@@ -37,6 +39,7 @@ const Contact = () => {
             opacity: 1
         }
     }
+    const iconSize = 22
     const currentPage = useLocation()
     const {
         register, 
@@ -106,7 +109,18 @@ const Contact = () => {
             variants={contentVariant}
             className='mb-[40px] lg:mb-[0px]'>
             <h3 className='text-[16px] text-[#807F7F]'>{currentPage.pathname}</h3>
-            <h2 className='font-light text-[32.437px] sm:text-[36.491px] mb-[25px]'>Get in touch, <span className='font-semibold'>I'd love to connect!</span></h2>
+            <div className='flex justify-between gap-[18px] mb-[25px] flex-wrap'>
+                <h2 className='font-light text-[32.437px] sm:text-[36.491px]'>Get in touch, <span className='font-semibold'>I'd love to connect!</span></h2>
+                <div className='flex gap-[20px] items-center'>
+                    <a href='https://www.linkedin.com/in/nav-j-399ba112a/' target='_blank' rel="noreferrer" className='group p-[9px] rounded-full border-2 border-[#E02720] flex items-center hover:bg-[#E02720]' title='linkedin'>
+                        <FaLinkedinIn size={iconSize} className='fill-[#E02720] group-hover:fill-[#0A0A0A]' />
+                    </a>
+                    <a href='https://www.instagram.com/navjindal622/' target='_blank' rel="noreferrer" className='group p-[9px] rounded-full border-2 border-[#E02720] flex items-center hover:bg-[#E02720]' title='instagram'>
+                        <FaInstagram size={iconSize} className='fill-[#E02720] group-hover:fill-[#0A0A0A]' /> 
+                    </a>
+                </div>
+            </div>
+            
         </motion.div>
         <motion.form 
             initial='hidden'

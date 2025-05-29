@@ -106,7 +106,7 @@ const Navbar = ({
                 </div>
             </motion.div>
             
-            <div className='hidden sm:flex gap-[32px]'>
+            <div className='hidden sm:flex gap-[30px] lg:gap-[40px]'>
                 {routerPaths?.map((page, index)=>
                     <NavigationLink 
                         key={index}
