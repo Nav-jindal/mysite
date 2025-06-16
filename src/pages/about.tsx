@@ -65,8 +65,7 @@ const About = () => {
             <div className='mb-[40px]'>
                 <h3 className='font-bold text-[25.629px] mb-[12px]'>Education</h3>
                 <div className='text-[#807F7F] border-solid'>
-                    <span className='font-bold text-[#807F7F]'>Btech (CS)</span> <br />
-                    2017 - 2021
+                    <span className='font-bold text-[#807F7F]'>Btech (CS) </span>
                 </div>
             </div>
             <div className='mb-[40px]'>

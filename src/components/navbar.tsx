@@ -24,7 +24,7 @@ const NavigationLink = ({
     toggleIsNavbarOpen
 }: NavigationLinkType) =>   <NavLink 
                                 className={`${currentPage === title ? 'font-bold pointer-events-none' : ' !font-normal text-[#6d6d6d]' } 
-                                            text-[20.25px]  hover:font-bold hover:text-[#E02720] hover:shadow-[0_2px_0_0_rgb(224,73,68)]`}
+                                            text-[20.25px] outline-none hover:font-bold focus-visible:font-bold hover:text-[#E02720] focus-visible:text-[#E02720]  hover:shadow-[0_2px_0_0_rgb(224,73,68)] focus-visible:shadow-[0_2px_0_0_rgb(224,73,68)]`}
                                 to={title}
                                 onClick={toggleIsNavbarOpen}
                                 >
